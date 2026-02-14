@@ -5,6 +5,9 @@
   background: #000;
 }
 
+/* ensure fixed overlays appear above the WebGL canvas */
+.app { position: relative; }
+
 .loading,
 .error {
   position: fixed;
@@ -18,4 +21,65 @@
   padding: 2rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  z-index: 1200;
 }
+
+.info-panel {
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  width: 260px;
+  max-height: 80vh;
+  overflow: auto;
+  background: rgba(10, 10, 20, 0.85);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  font-size: 0.9rem;
+  z-index: 1300;
+  pointer-events: auto;
+}
+
+.info-panel h3, .info-panel h4, .info-panel h5 {
+  margin: 0 0 0.5rem 0;
+}
+
+.asteroid-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.asteroid-item {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #ddd;
+  padding: 0.25rem 0.5rem;
+  text-align: left;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.asteroid-item.selected {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.14);
+}
+
+.selected-details { margin-top: 0.5rem; }
+
+.reset-btn {
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.reset-btn:hover { background: rgba(255,255,255,0.1); }
+
+/* small utility for the show button */
+.reset-btn[style] { padding: 0.4rem 0.6rem; }
